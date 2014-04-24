@@ -9,6 +9,7 @@ for bee in \
     tc-gcc_pass1-4.8.2-0.bee \
     tc-linux-api-headers-3.13.3-0.bee \
     tc-glibc-2.19-0.bee \
+    tc-libstdc++-4.8.2-0.bee \
     tc-adjust-toolchain-0-0.bee \
     tc-binutils_pass2-2.22-0.bee \
     tc-gcc_pass2-4.6.2-0.bee \

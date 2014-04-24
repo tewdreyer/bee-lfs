@@ -1,0 +1,33 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# this is the bee-file for libstdc+
+# see LFS 7.5 chapter 5: 5.8
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter05/libstdc++.html
+#
+SRCURL[0]="http://ftp.gnu.org/gnu/gcc/gcc-${PKGVERSION}/gcc-${PKGVERSION}.tar.bz2"
+
+# set LFS_TGT if not set..
+: ${LFS_TGT=$(uname -m)-lfs-linux-gnu}
+
+# set PREFIX to LFS_PREFIX (default: /tools)
+PREFIX=${LFS_PREFIX=/tools}
+
+# set explicit PATH
+export PATH=${PREFIX}/bin:/bin:/usr/bin
+
+# use non-default configure options..
+mee_configure() {
+
+    start_cmd ${S}/libstdc++-v3/configure \
+      --host=${LFS_TGT} \
+      --prefix=${PREFIX} \
+      --disable-multilib \
+      --disable-shared \
+      --disable-nls \
+      --disable-libstdcxx-threads \
+      --disable-libstdcxx-pch \
+      --with-gxx-include-dir=${LFS_PREFIX}/${LFS_TGT}/include/c++/${PKGVERSION}
+}
