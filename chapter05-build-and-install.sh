@@ -5,7 +5,7 @@ set -e
 source _load-config.lib
 
 for bee in \
-    tc-binutils_pass1-2.22-0.bee \
+    tc-binutils_pass1-2.24-0.bee \
     tc-gcc_pass1-4.6.2-0.bee \
     tc-linux-api-headers-3.2.6-0.bee \
     tc-glibc-2.14.1-0.bee \
@@ -35,6 +35,6 @@ for bee in \
     tc-tar-1.26-0.bee \
     tc-texinfo-4.13a-0.bee \
     tc-xz-5.0.3-0.bee ; do
-  beesh "chapter05/${bee}" --install --no-archive-build "${@}"
+  beesh "chapter05/${bee}" --install --no-archive-build "${@}" --cleanup
 done
 
