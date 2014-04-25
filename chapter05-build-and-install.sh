@@ -20,7 +20,7 @@ for bee in \
     tc-bash-4.2-0.bee \
     tc-bzip2-1.0.6-0.bee \
     tc-coreutils-8.22-0.bee \
-    tc-diffutils-3.2-0.bee \
+    tc-diffutils-3.3-0.bee \
     tc-file-5.10-0.bee \
     tc-findutils-4.4.2-0.bee \
     tc-gawk-4.0.0-0.bee \
