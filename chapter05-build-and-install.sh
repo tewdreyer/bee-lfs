@@ -32,7 +32,7 @@ for bee in \
     tc-patch-2.7.1-0.bee \
     tc-perl-5.18.2-0.bee \
     tc-sed-4.2.2-0.bee \
-    tc-tar-1.26-0.bee \
+    tc-tar-1.27.1-0.bee \
     tc-texinfo-4.13a-0.bee \
     tc-xz-5.0.3-0.bee ; do
   beesh "chapter05/${bee}" --install --no-archive-build "${@}" --cleanup
