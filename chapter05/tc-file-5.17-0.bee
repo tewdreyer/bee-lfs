@@ -1,10 +1,11 @@
 #!/usr/bin/env beesh
 #
-# this file is part of bee-lfs v7.1
+# this file is part of bee-lfs v7.5
 #  by Marius Tolzmann <marius@mariux.de> 2011-2012
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
 #
-# see LFS 7.1 chapter 5: 5.20
-# http://www.linuxfromscratch.org/lfs/view/7.1/chapter05/file.html
+# see LFS 7.5 chapter 5: 5.20
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter05/file.html
 
 SRCURL[0]="ftp://ftp.astron.com/pub/file/file-${PKGVERSION}.tar.gz"
 
