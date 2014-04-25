@@ -1,10 +1,11 @@
 #!/usr/bin/env beesh
 #
-# this file is part of bee-lfs v7.1
+# this file is part of bee-lfs v7.5
 #  by Marius Tolzmann <marius@mariux.de> 2011-2012
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
 #
-# see LFS 7.1 chapter 5: 5.23
-# http://www.linuxfromscratch.org/lfs/view/7.1/chapter05/gettext.html
+# see LFS 7.5 chapter 5: 5.23
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter05/gettext.html
 #
 
 SRCURL[0]="http://ftp.gnu.org/gnu/gettext/gettext-${PKGVERSION}.tar.gz"
@@ -16,16 +17,20 @@ PREFIX=${LFS_PREFIX=/tools}
 export PATH=${PREFIX}/bin:/bin:/usr/bin
 
 mee_configure() {
+    EMACS="no" \
     start_cmd ${S}/gettext-tools/configure \
+        --prefix=${PREFIX} \
         --disable-shared
 }
 
 mee_build() {
     start_cmd make -C gnulib-lib
     start_cmd make -C src msgfmt
+    start_cmd make -C src msgmerge
+    start_cmd make -C src xgettext
 }
 
 mee_install() {
     start_cmd mkdir -pv ${D}${BINDIR}
-    start_cmd cp -v src/msgfmt ${D}${BINDIR}
+    start_cmd cp -v src/{msgfmt,msgmerge,xgettext} ${D}${BINDIR}
 }

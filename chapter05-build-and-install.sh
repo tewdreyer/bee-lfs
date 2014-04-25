@@ -24,7 +24,7 @@ for bee in \
     tc-file-5.17-0.bee \
     tc-findutils-4.4.2-0.bee \
     tc-gawk-4.1.0-0.bee \
-    tc-gettext-0.18.1.1-0.bee \
+    tc-gettext-0.18.3.2-0.bee \
     tc-grep-2.10-0.bee \
     tc-gzip-1.4-0.bee \
     tc-m4-1.4.16-0.bee \
