@@ -15,7 +15,7 @@ for bee in \
     tc-tcl-8.6.1-0.bee \
     tc-expect-5.45-0.bee \
     tc-dejagnu-1.5.1-0.bee \
-    tc-check-0.9.8-0.bee \
+    tc-check-0.9.12-0.bee \
     tc-ncurses-5.9-0.bee \
     tc-bash-4.2-0.bee \
     tc-bzip2-1.0.6-0.bee \

@@ -1,10 +1,11 @@
 #!/usr/bin/env beesh
 #
-# this file is part of bee-lfs v7.1
+# this file is part of bee-lfs v7.5
 #  by Marius Tolzmann <marius@mariux.de> 2011-2012
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
 #
-# see LFS 7.1 chapter 5: 5.14
-# http://www.linuxfromscratch.org/lfs/view/7.1/chapter05/check.html
+# see LFS 7.5 chapter 5: 5.14
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter05/check.html
 #
 
 SRCURL[0]="http://sourceforge.net/projects/check/files/check/${PKGVERSION}/check-${PKGVERSION}.tar.gz"
@@ -14,3 +15,9 @@ PREFIX=${LFS_PREFIX=/tools}
 
 # set explicit PATH
 export PATH=${PREFIX}/bin:/bin:/usr/bin
+
+mee_configure() {
+    PKG_CONFIG= \
+    start_cmd ${S}/configure \
+        --prefix=${PREFIX}
+}
