@@ -12,7 +12,7 @@ for bee in \
     tc-libstdc++-4.8.2-0.bee \
     tc-binutils_pass2-2.24-0.bee \
     tc-gcc_pass2-4.8.2-0.bee \
-    tc-tcl-8.5.11-0.bee \
+    tc-tcl-8.6.1-0.bee \
     tc-expect-5.45-0.bee \
     tc-dejagnu-1.5-0.bee \
     tc-check-0.9.8-0.bee \
