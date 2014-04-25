@@ -30,7 +30,7 @@ for bee in \
     tc-m4-1.4.17-0.bee \
     tc-make-4.0-0.bee \
     tc-patch-2.7.1-0.bee \
-    tc-perl-5.14.2-0.bee \
+    tc-perl-5.18.2-0.bee \
     tc-sed-4.2.1-0.bee \
     tc-tar-1.26-0.bee \
     tc-texinfo-4.13a-0.bee \
