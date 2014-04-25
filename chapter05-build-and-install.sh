@@ -26,7 +26,7 @@ for bee in \
     tc-gawk-4.1.0-0.bee \
     tc-gettext-0.18.3.2-0.bee \
     tc-grep-2.16-0.bee \
-    tc-gzip-1.4-0.bee \
+    tc-gzip-1.6-0.bee \
     tc-m4-1.4.16-0.bee \
     tc-make-3.82-0.bee \
     tc-patch-2.6.1-0.bee \
