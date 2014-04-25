@@ -14,7 +14,7 @@ for bee in \
     tc-gcc_pass2-4.8.2-0.bee \
     tc-tcl-8.6.1-0.bee \
     tc-expect-5.45-0.bee \
-    tc-dejagnu-1.5-0.bee \
+    tc-dejagnu-1.5.1-0.bee \
     tc-check-0.9.8-0.bee \
     tc-ncurses-5.9-0.bee \
     tc-bash-4.2-0.bee \
