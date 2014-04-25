@@ -1,10 +1,11 @@
 #!/usr/bin/env beesh
 #
-# this file is part of bee-lfs v7.1
+# this file is part of bee-lfs v7.5
 #  by Marius Tolzmann <marius@mariux.de> 2011-2012
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
 #
-# see LFS 7.1 chapter 5: 5.27
-# http://www.linuxfromscratch.org/lfs/view/7.1/chapter05/make.html
+# see LFS 7.5 chapter 5: 5.27
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter05/make.html
 #
 
 SRCURL[0]="http://ftp.gnu.org/gnu/make/make-${PKGVERSION}.tar.bz2"
@@ -14,3 +15,7 @@ PREFIX=${LFS_PREFIX=/tools}
 
 # set explicit PATH
 export PATH=${PREFIX}/bin:/bin:/usr/bin
+
+mee_configure() {
+    bee_configure --without-guile
+}

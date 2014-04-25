@@ -28,7 +28,7 @@ for bee in \
     tc-grep-2.16-0.bee \
     tc-gzip-1.6-0.bee \
     tc-m4-1.4.17-0.bee \
-    tc-make-3.82-0.bee \
+    tc-make-4.0-0.bee \
     tc-patch-2.6.1-0.bee \
     tc-perl-5.14.2-0.bee \
     tc-sed-4.2.1-0.bee \
