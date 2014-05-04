@@ -1,0 +1,20 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+SRCURL[0]="ftp://ftp.gnutls.org/gcrypt/gnutls/v${PKGVERSION[2]}/gnutls-${PKGVERSION}.tar.xz"
+
+# set PREFIX to LFS_PREFIX (default: /tools)
+PREFIX=${LFS_PREFIX=/tools}
+
+# set explicit PATH
+export PATH=${PREFIX}/bin:/bin:/usr/bin
+
+mee_configure() {
+    HOGWEED_CFLAGS="-I${INCLUDEDIR}" \
+    HOGWEED_LIBS="-lhogweed -L${LIBDIR}" \
+    NETTLE_CFLAGS="-I${INCLUDEDIR}" \
+    NETTLE_LIBS="-lnettle -L${LIBDIR}" \
+    bee_configure
+}
