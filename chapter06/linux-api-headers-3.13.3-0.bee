@@ -1,0 +1,33 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.7
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/linux-headers.html
+#
+
+SRCURL[0]="http://www.kernel.org/pub/linux/kernel/v3.x/linux-${PKGVERSION}.tar.xz"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+# we may not need those even if LFS installs them:
+EXCLUDE=( .install ..install.cmd )
+
+# build the kernel in its source dir
+build_in_sourcedir
+
+# cleanup in the configure pass
+mee_configure() {
+    make mrproper
+}
+
+mee_build() {
+    make headers_check
+}
+
+# install the headers directly in the image dir - no need to copy them afterwards
+mee_install() {
+    make INSTALL_HDR_PATH=${D}/${PREFIX} headers_install
+}
