@@ -36,7 +36,8 @@ for bee in \
     tc-texinfo-5.2-0.bee \
     tc-util-linux-2.24.1-0.bee \
     tc-xz-5.0.5-0.bee \
-    tc-gmp-5.1.3-0.bee ; do
+    tc-gmp-5.1.3-0.bee \
+    tc-nettle-2.7.1-0.bee ; do
   beesh "chapter05/${bee}" --install --no-archive-build "${@}" --cleanup
 done
 

@@ -1,0 +1,16 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+SRCURL[0]="http://ftp.gnu.org/gnu/nettle/nettle-${PKGVERSION}.tar.gz"
+
+# set PREFIX to LFS_PREFIX (default: /tools)
+PREFIX=${LFS_PREFIX=/tools}
+
+# set explicit PATH
+export PATH=${PREFIX}/bin:/bin:/usr/bin
+
+mee_install_post() {
+    start_cmd chmod -v 755 ${D}${LIBDIR}/libhogweed.so.2.5 ${D}${LIBDIR}/libnettle.so.4.7
+}
