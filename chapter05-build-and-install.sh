@@ -41,7 +41,8 @@ for bee in \
     tc-gnutls-3.2.13-0.bee \
     tc-wget-1.15-0.bee \
     tc-mpfr-3.1.2-0.bee \
-    tc-mpc-1.0.2-0.bee ; do
+    tc-mpc-1.0.2-0.bee \
+    tc-zlib-1.2.8-0.bee ; do
   beesh "chapter05/${bee}" --install --no-archive-build "${@}" --cleanup
 done
 
