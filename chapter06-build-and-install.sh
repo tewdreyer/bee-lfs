@@ -13,6 +13,7 @@ for bee in \
     file-5.17-0.bee \
     binutils-2.24-0.bee \
     gmp-5.1.3-0.bee \
+    mpfr-3.1.2-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
