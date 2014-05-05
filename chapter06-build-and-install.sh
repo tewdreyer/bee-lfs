@@ -15,6 +15,7 @@ for bee in \
     gmp-5.1.3-0.bee \
     mpfr-3.1.2-0.bee \
     mpc-1.0.2-0.bee \
+    gcc-4.8.2-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup

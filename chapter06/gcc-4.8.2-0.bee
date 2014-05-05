@@ -1,0 +1,40 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.17
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/gcc.html
+#
+SRCURL="http://ftp.gnu.org/gnu/gcc/gcc-${PKGVERSION}/gcc-${PKGVERSION}.tar.bz2"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_configure_pre() {
+    case `uname -m` in
+        i?86) sed -i 's/^T_CFLAGS =$/& -fomit-frame-pointer/' ${S}/gcc/Makefile.in ;;
+    esac
+}
+
+mee_configure() {
+    SED=sed \
+    bee_configure \
+        --enable-shared \
+        --enable-threads=posix \
+        --enable-__cxa_atexit \
+        --enable-clocale=gnu \
+        --enable-languages=c,c++ \
+        --disable-multilib \
+        --disable-bootstrap \
+        --with-system-zlib
+}
+
+mee_install_post() {
+    ln -sv ../usr/bin/cpp ${D}/lib
+    
+    ln -sv gcc ${D}/usr/bin/cc
+
+    mkdir -pv ${D}${DATAROOTDIR}/gdb/auto-load/usr/lib
+    mv -v ${D}${LIBDIR}/*gdb.py ${D}${DATAROOTDIR}/gdb/auto-load/usr/lib
+}
