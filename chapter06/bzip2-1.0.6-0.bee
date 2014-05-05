@@ -1,0 +1,36 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.19
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/bzip2.html
+#
+SRCURL="http://www.bzip.org/${PKGVERSION}/bzip2-${PKGVERSION}.tar.gz"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_patch_post() {
+    sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' ${S}/Makefile
+    sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" ${S}/Makefile
+}
+
+mee_build() {
+    make -f Makefile-libbz2_so
+    make clean
+    bee_build
+}
+
+mee_install() {
+    bee_install PREFIX=${D}${PREFIX}
+}
+
+mee_install_post() {
+    cp -v bzip2-shared ${D}${BINDIR}/bzip2
+    cp -av libbz2.so* ${D}${LIBDIR}
+    ln -sv libbz2.so.1.0 ${D}${LIBDIR}/libbz2.so
+    rm -v ${D}${BINDIR}/{bunzip2,bzcat,bzip2}
+    ln -sv bzip2 ${D}${BINDIR}/bunzip2
+    ln -sv bzip2 ${D}${BINDIR}/bzcat
+}

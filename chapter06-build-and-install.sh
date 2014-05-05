@@ -17,6 +17,7 @@ for bee in \
     mpc-1.0.2-0.bee \
     gcc-4.8.2-0.bee \
     sed-4.2.2-0.bee \
+    bzip2-1.0.6-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
