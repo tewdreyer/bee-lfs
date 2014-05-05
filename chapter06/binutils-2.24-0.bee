@@ -1,0 +1,23 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.13
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/binutils.html
+#
+SRCURL[0]="http://ftp.gnu.org/gnu/binutils/binutils-${PKGVERSION}.tar.bz2"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_configure_pre() {
+    start_cmd rm -vf ${S}/etc/standards.info
+    start_cmd sed -i.bak '/^INFO/s/standards.info //' ${S}/etc/Makefile.in 
+}
+
+mee_configure() {
+    bee_configure --enable-shared
+}
+
+export tooldir=${PREFIX}

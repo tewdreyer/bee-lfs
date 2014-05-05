@@ -11,6 +11,7 @@ for bee in \
     glibc-2.19-0.bee \
     zlib-1.2.8-0.bee \
     file-5.17-0.bee \
+    binutils-2.24-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
