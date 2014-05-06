@@ -22,6 +22,7 @@ for bee in \
     ncurses-5.9-0.bee \
     shadow-4.1.5.1-0.bee \
     psmisc-22.20-0.bee \
+    procps-ng-3.3.9-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
