@@ -1,0 +1,21 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.22
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/shadow.html
+#
+SRCURL="http://cdn.debian.net/debian/pool/main/s/shadow/shadow_${PKGVERSION}.orig.tar.gz"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_patch_post() {
+    sed -i 's/groups$(EXEEXT) //' ${S}/src/Makefile.in
+    find ${S}/man -name Makefile.in -exec sed -i 's/groups\.1 / /' {} \;
+
+    sed -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
+        -e 's@/var/spool/mail@/var/mail@' \
+        -i ${S}/etc/login.defs
+}
