@@ -1,0 +1,36 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.21
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/pkg-config.html
+#
+SRCURL="http://ftp.gnu.org/gnu/ncurses/ncurses-${PKGVERSION}.tar.gz"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_configure() {
+    bee_configure \
+        --with-shared \
+        --without-debug \
+        --enable-widec
+}
+
+mee_install_post() {
+    for lib in ncurses form panel menu ; do
+        rm -vf ${D}${LIBDIR}/lib${lib}.so
+        echo "INPUT(-l${lib}w)" > ${D}${LIBDIR}/lib${lib}.so
+        ln -sfv lib${lib}w.a ${D}${LIBDIR}/lib${lib}.a
+    done
+
+    ln -sfv libncurses++w.a ${D}${LIBDIR}/libncurses++.a
+
+    rm -vf ${D}${LIBDIR}/libcursesw.so
+    
+    echo "INPUT(-lncursesw)" >${D}${LIBDIR}/libcursesw.so
+    ln -sfv libncurses.so ${D}${LIBDIR}/libcurses.so
+    ln -sfv libncursesw.a ${D}${LIBDIR}/libcursesw.a
+    ln -sfv libncurses.a  ${D}${LIBDIR}/libcurses.a
+}

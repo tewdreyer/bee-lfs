@@ -19,6 +19,7 @@ for bee in \
     sed-4.2.2-0.bee \
     bzip2-1.0.6-0.bee \
     pkg-config-0.28-0.bee \
+    ncurses-5.9-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
