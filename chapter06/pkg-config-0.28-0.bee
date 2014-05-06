@@ -1,0 +1,18 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.20
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/pkg-config.html
+#
+SRCURL="http://pkgconfig.freedesktop.org/releases/pkg-config-${PKGVERSION}.tar.gz"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_configure() {
+    bee_configure \
+        --with-internal-glib \
+        --disable-host-tool
+}
