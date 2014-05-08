@@ -1,0 +1,20 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.26
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/e2fsprogs.html
+#
+SRCURL="http://ftp.gnu.org/gnu/coreutils/coreutils-${PKGVERSION}.tar.xz"
+PATCHURL="http://www.linuxfromscratch.org/patches/lfs/7.5/coreutils-${PKGVERSION}-i18n-4.patch"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_configure() {
+    FORCE_UNSAFE_CONFIGURE=1 \
+    bee_configure \
+        --enable-no-install-program=kill,uptime
+
+}
