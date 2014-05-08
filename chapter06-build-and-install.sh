@@ -26,6 +26,7 @@ for bee in \
     e2fsprogs-1.42.9-0.bee \
     coreutils-8.22-0.bee \
     iana-etc-2.30-0.bee \
+    m4-1.4.17-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
