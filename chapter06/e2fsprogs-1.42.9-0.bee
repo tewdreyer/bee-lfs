@@ -1,0 +1,35 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.25
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/e2fsprogs.html
+#
+SRCURL="http://prdownloads.sourceforge.net/e2fsprogs/e2fsprogs-${PKGVERSION}.tar.gz"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_configure() {
+    LIBS="-L${LFS_PREFIX}/lib" \
+    CFLAGS="-I${LFS_PREFIX}/include" \
+    PKG_CONFIG_PATH=${LFS_PREFIX}/lib/pkgconfig \
+    bee_configure \
+        --with-root-prefix="" \
+        --enable-elf-shlibs \
+        --disable-libblkid \
+        --disable-libuuid \
+        --disable-uuidd \
+        --disable-fsck
+
+}
+
+mee_install() {
+    bee_install
+    bee_install install-libs
+}
+
+mee_install_post() {
+    chmod -v u+w ${D}${LIBDIR}/{libcom_err,libe2p,libext2fs,libss}.a
+}
