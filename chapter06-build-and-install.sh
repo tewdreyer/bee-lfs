@@ -25,6 +25,7 @@ for bee in \
     procps-ng-3.3.9-0.bee \
     e2fsprogs-1.42.9-0.bee \
     coreutils-8.22-0.bee \
+    iana-etc-2.30-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup

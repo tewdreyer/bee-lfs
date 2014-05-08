@@ -1,0 +1,18 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.27
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/iana-etc.html
+#
+SRCURL="http://anduin.linuxfromscratch.org/sources/LFS/lfs-packages/conglomeration//iana-etc/iana-etc-${PKGVERSION}.tar.bz2"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_install() {
+    start_cmd make install \
+        DESTDIR=${D} \
+        ETC_DIR=${SYSCONFDIR}
+}
