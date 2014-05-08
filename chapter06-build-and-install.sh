@@ -27,6 +27,7 @@ for bee in \
     coreutils-8.22-0.bee \
     iana-etc-2.30-0.bee \
     m4-1.4.17-0.bee \
+    flex-2.5.38-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
