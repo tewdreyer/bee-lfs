@@ -1,0 +1,19 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.33
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/readline.html
+#
+SRCURL="http://ftp.gnu.org/gnu/bash/bash-${PKGVERSION}.tar.gz"
+PATCHURL="http://www.linuxfromscratch.org/patches/lfs/7.5/bash-${PKGVERSION}-fixes-12.patch"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_configure() {
+    bee_configure \
+        --without-bash-malloc \
+        --with-installed-readline
+}
