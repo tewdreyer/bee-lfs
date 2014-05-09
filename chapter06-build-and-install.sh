@@ -34,6 +34,7 @@ for bee in \
     bash-4.2-0.bee \
     bc-1.06.95-0.bee \
     libtool-2.4.2-0.bee \
+    gdbm-1.11-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
