@@ -1,0 +1,24 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.37
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/inetutils.html
+#
+SRCURL="http://ftp.gnu.org/gnu/inetutils/inetutils-${PKGVERSION}.tar.gz"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_patch_post() {
+    echo '#define PATH_PROCNET_DEV "/proc/net/dev"' >> ${S}/ifconfig/system/linux.h
+}
+
+mee_configure() {
+    bee_configure \
+        --disable-logger \
+        --disable-syslogd \
+        --disable-whois \
+        --disable-servers
+}
