@@ -30,6 +30,7 @@ for bee in \
     flex-2.5.38-0.bee \
     bison-3.0.2-0.bee \
     grep-2.16-0.bee \
+    readline-6.2-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
