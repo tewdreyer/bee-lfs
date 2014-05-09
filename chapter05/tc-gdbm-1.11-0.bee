@@ -1,0 +1,17 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+SRCURL="http://ftp.gnu.org/gnu/gdbm/gdbm-${PKGVERSION}.tar.gz"
+
+# set PREFIX to LFS_PREFIX (default: /tools)
+PREFIX=${LFS_PREFIX=/tools}
+
+# set explicit PATH
+export PATH=${PREFIX}/bin:/bin:/usr/bin
+
+mee_configure() {
+    bee_configure \
+        --enable-libgdbm-compat
+}

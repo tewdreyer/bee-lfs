@@ -44,7 +44,8 @@ for bee in \
     tc-mpc-1.0.2-0.bee \
     tc-zlib-1.2.8-0.bee \
     tc-pkg-config-0.28-0.bee \
-    tc-bison-3.0.2-0.bee ; do
+    tc-bison-3.0.2-0.bee \
+    tc-gdbm-1.11-0.bee ; do
   beesh "chapter05/${bee}" --install --no-archive-build "${@}" --cleanup
 done
 
