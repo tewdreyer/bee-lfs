@@ -32,6 +32,7 @@ for bee in \
     grep-2.16-0.bee \
     readline-6.2-0.bee \
     bash-4.2-0.bee \
+    bc-1.06.95-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
