@@ -33,6 +33,7 @@ for bee in \
     readline-6.2-0.bee \
     bash-4.2-0.bee \
     bc-1.06.95-0.bee \
+    libtool-2.4.2-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
