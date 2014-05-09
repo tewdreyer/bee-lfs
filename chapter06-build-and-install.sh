@@ -28,6 +28,7 @@ for bee in \
     iana-etc-2.30-0.bee \
     m4-1.4.17-0.bee \
     flex-2.5.38-0.bee \
+    bison-3.0.2-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
