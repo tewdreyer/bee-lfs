@@ -37,6 +37,7 @@ for bee in \
     gdbm-1.11-0.bee \
     inetutils-1.9.2-0.bee \
     perl-5.18.2-0.bee \
+    autoconf-2.69-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
