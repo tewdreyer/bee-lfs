@@ -44,6 +44,7 @@ for bee in \
     findutils-4.4.2-0.bee \
     gettext-0.18.3.2-0.bee \
     groff-1.22.2-0.bee \
+    xz-5.0.5-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
