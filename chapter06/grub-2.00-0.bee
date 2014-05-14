@@ -1,0 +1,24 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.47
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/grub.html
+#
+SRCURL="http://ftp.gnu.org/gnu/grub/grub-${PKGVERSION}.tar.xz"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_patch() {
+    start_cmd sed -e '/gets is a/d' \
+                  -i ${S}/grub-core/gnulib/stdio.in.h
+}
+
+mee_configure() {
+    bee_configure \
+        --disable-grub-emu-usb \
+        --disable-efiemu \
+        --disable-werror
+}
