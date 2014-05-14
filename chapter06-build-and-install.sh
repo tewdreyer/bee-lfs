@@ -42,6 +42,7 @@ for bee in \
     diffutils-3.3-0.bee \
     gawk-4.1.0-0.bee \
     findutils-4.4.2-0.bee \
+    gettext-0.18.3.2-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
