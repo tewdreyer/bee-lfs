@@ -40,6 +40,7 @@ for bee in \
     autoconf-2.69-0.bee \
     automake-1.14.1-0.bee \
     diffutils-3.3-0.bee \
+    gawk-4.1.0-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
