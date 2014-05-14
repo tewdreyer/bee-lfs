@@ -39,6 +39,7 @@ for bee in \
     perl-5.18.2-0.bee \
     autoconf-2.69-0.bee \
     automake-1.14.1-0.bee \
+    diffutils-3.3-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
