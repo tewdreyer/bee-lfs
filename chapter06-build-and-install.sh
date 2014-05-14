@@ -36,6 +36,7 @@ for bee in \
     libtool-2.4.2-0.bee \
     gdbm-1.11-0.bee \
     inetutils-1.9.2-0.bee \
+    perl-5.18.2-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup

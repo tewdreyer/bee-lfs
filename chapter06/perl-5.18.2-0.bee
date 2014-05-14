@@ -1,0 +1,44 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.38
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/perl.html
+#
+SRCURL="http://www.cpan.org/src/${PKGVERSION[1]}.0/perl-${PKGVERSION}.tar.bz2"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+build_in_sourcedir
+
+mee_patch_post() {
+    sed -e "s|BUILD_ZLIB\s*= True|BUILD_ZLIB = False|" \
+        -e "s|INCLUDE\s*= ./zlib-src|INCLUDE    = ${INCLUDEDIR}|" \
+        -e "s|LIB\s*= ./zlib-src|LIB        = ${LIBDIR}|" \
+        -i ${S}/cpan/Compress-Raw-Zlib/config.in
+}
+
+mee_configure() {
+    start_cmd sh ${S}/Configure \
+        -des \
+        -Dprefix=${PREFIX} \
+        -Dvendorprefix=${PREFIX} \
+        -Dman1dir=${MANDIR}/man1 \
+        -Dman3dir=${MANDIR}/man3 \
+        -Dpager="${BINDIR}/less -isR" \
+        -Duseshrplib \
+        -Ui_gdbmndbm \
+        -Dlibpth=${LFS_PREFIX}/lib \
+        -Dincpth=${LFS_PREFIX}/include
+}
+
+mee_build() {
+    start_cmd make
+}
+
+mee_install() {
+    start_cmd make install \
+        DESTDIR=${D}
+}
