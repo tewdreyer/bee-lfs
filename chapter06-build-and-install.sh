@@ -50,6 +50,7 @@ for bee in \
     gzip-1.6-0.bee \
     iproute2-3.12.0-0.bee \
     kbd-2.0.1-0.bee \
+    kmod-16-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
