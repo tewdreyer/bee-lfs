@@ -1,0 +1,25 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.51
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/kbd.html
+#
+SRCURL="http://ftp.altlinux.org/pub/people/legion/kbd/kbd-${PKGVERSION}.tar.gz"
+PATCHURL="http://www.linuxfromscratch.org/patches/lfs/7.5/kbd-${PKGVERSION}-backspace-1.patch"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_patch_post() {
+    sed -e 's/\(RESIZECONS_PROGS=\)yes/\1no/g' \
+        -i ${S}/configure
+    sed -e 's/resizecons.8 //' \
+        -i ${S}/docs/man/man8/Makefile.in
+}
+
+mee_configure() {
+    bee_configure \
+        --disable-vlock
+}
