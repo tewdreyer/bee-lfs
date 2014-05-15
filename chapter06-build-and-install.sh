@@ -47,6 +47,7 @@ for bee in \
     xz-5.0.5-0.bee \
     grub-2.00-0.bee \
     less-458-0.bee \
+    gzip-1.6-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
