@@ -1,0 +1,19 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.58
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/tar.html
+#
+SRCURL="http://ftp.gnu.org/gnu/tar/tar-${PKGVERSION}.tar.xz"
+PATCHURL="http://www.linuxfromscratch.org/patches/lfs/7.5/tar-${PKGVERSION}-manpage-1.patch"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_install_post() {
+    start_cmd mkdir -pv ${D}${MANDIR}/man1
+
+    start_cmd perl ${S}/tarman > ${D}${MANDIR}/man1/tar.1
+}

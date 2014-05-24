@@ -57,6 +57,7 @@ for bee in \
     sysklogd-1.5-0.bee \
     sysvinit-2.88dsf-0.bee \
     sysvinit-2.88dsf-0.bee \
+    tar-1.27.1-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
