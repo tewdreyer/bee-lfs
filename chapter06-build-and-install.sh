@@ -54,6 +54,7 @@ for bee in \
     libpipeline-1.2.6-0.bee \
     make-4.0-0.bee \
     patch-2.7.1-0.bee \
+    sysklogd-1.5-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup
