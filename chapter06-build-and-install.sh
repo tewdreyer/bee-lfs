@@ -55,6 +55,8 @@ for bee in \
     make-4.0-0.bee \
     patch-2.7.1-0.bee \
     sysklogd-1.5-0.bee \
+    sysvinit-2.88dsf-0.bee \
+    sysvinit-2.88dsf-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup

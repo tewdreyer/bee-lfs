@@ -1,0 +1,24 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.57
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/sysvinit.html
+#
+SRCURL="http://download.savannah.gnu.org/releases/sysvinit/sysvinit-${PKGVERSION}.tar.bz2"
+PATCHURL="http://www.linuxfromscratch.org/patches/lfs/7.5/sysvinit-${PKGVERSION}-consolidated-1.patch"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_build() {
+    bee_build \
+        -C src
+}
+
+mee_install() {
+    bee_install \
+        -C src \
+        ROOT=${D}
+}
