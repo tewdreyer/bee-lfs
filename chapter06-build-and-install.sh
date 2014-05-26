@@ -60,6 +60,7 @@ for bee in \
     tar-1.27.1-0.bee \
     texinfo-5.2-0.bee \
     udev-208-0.bee \
+    util-linux-2.24.1-0.bee \
 
 do
     beesh "chapter06/${bee}" --no-archive-build "${@}" --cleanup

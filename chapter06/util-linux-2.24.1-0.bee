@@ -1,0 +1,27 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.61
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/util-linux.html
+#
+SRCURL="http://www.kernel.org/pub/linux/utils/util-linux/v2.24/util-linux-${PKGVERSION}.tar.xz"
+
+# set explicit PATH
+export PATH=${LFS_PREFIX}/bin
+
+mee_patch() {
+    start_cmd sed \
+        -e 's@etc/adjtime@var/lib/hwclock/adjtime@g' \
+        -i $(grep -rl '/etc/adjtime' .)
+}
+
+mee_configure() {
+    bee_configure \
+        --disable-makeinstall-chown
+}
+
+mee_install_post() {
+    start_cmd mkdir -pv ${D}/var/lib/hwclock
+}
