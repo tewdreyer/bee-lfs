@@ -1,0 +1,31 @@
+#!/usr/bin/env beesh
+#
+# this file is part of bee-lfs v7.5
+#  by Tobias Dreyer <tewdreyer@gmail.com> 2014
+#
+# see LFS 7.5 chapter 6: 6.52
+# http://www.linuxfromscratch.org/lfs/view/7.5/chapter06/kmod.html
+#
+SRCURL="http://www.kernel.org/pub/linux/utils/kernel/kmod/kmod-${PKGVERSION}.tar.xz"
+
+# set PREFIX to LFS_PREFIX (default: /tools)
+PREFIX=${LFS_PREFIX=/tools}
+
+# set explicit PATH
+export PATH=${PREFIX}/bin:/bin:/usr/bin
+
+mee_configure() {
+    bee_configure \
+        --disable-manpages \
+        --with-xz \
+        --with-zlib
+}
+
+mee_install_post() {
+    mkdir -pv ${D}${SBINDIR}
+    for target in depmod insmod modinfo modprobe rmmod; do
+        ln -sv ${BINDIR}/kmod ${D}${SBINDIR}/$target
+    done
+
+    ln -sv kmod ${D}${BINDIR}/lsmod
+}

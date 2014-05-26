@@ -47,7 +47,8 @@ for bee in \
     tc-bison-3.0.2-0.bee \
     tc-gdbm-1.11-0.bee \
     tc-autoconf-2.69-0.bee \
-    tc-flex-2.5.38-0.bee ; do
+    tc-flex-2.5.38-0.bee \
+    tc-kmod-16-0.bee ; do
   beesh "chapter05/${bee}" --install --no-archive-build "${@}" --cleanup
 done
 
